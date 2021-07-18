@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import PatientApp from '../views/PatientApp.vue'
 import Login from '../views/Login.vue'
-import Diary from '../views/Diary.vue'
-import Profile from '../views/Profile.vue'
+import Diary from '../views/nestedPatientViews/Diary.vue'
+import Profile from '../views/nestedPatientViews/Profile.vue'
+import Recipes from '../views/nestedPatientViews/Recipes.vue'
 
 Vue.use(VueRouter)
 
@@ -13,14 +15,26 @@ const routes = [
     component: Login
   }, 
   {
-    path: "/diary",
-    name: "Diary", 
-    component: Diary
-  }, 
-  {
-    path: "/profile", 
-    name: "Profile", 
-    component: Profile
+    path: "/patientApp",
+    name: "PatientApp", 
+    component: PatientApp, 
+    children: [
+      {
+        path: 'diary', 
+        name: 'Diary',
+        component: Diary,
+      }, 
+      {
+        path: 'profile', 
+        name: 'Profile',
+        component: Profile
+      }, 
+      {
+        path: 'recipes',
+        name: 'Recipes',
+        component: Recipes
+      }
+    ]
   }
 ]
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Login page</h3>
-    <router-link to='/diary'>Login</router-link>
+    <router-link to='/patientApp/diary'>Login</router-link>
   </div>
 </template>
 
